@@ -1,0 +1,24 @@
+query RunInput {
+  shop{
+    localTime{
+      date
+    }
+  }
+  cart{
+    lines {
+      id
+      cost{
+        amountPerQuantity{
+          amount
+        }
+      }
+      merchandise {
+        ... on ProductVariant {
+          metafield(namespace: "custom", key: "color-daily-discounts") {
+              value
+          }
+        }
+      }
+    }
+  }
+}
